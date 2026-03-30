@@ -2,6 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { initDb } = require('./src/database/db');
+const fornecedoresRouter = require('./src/routes/fornecedores');
+const contasRouter = require('./src/routes/contas');
+const categoriasRouter = require('./src/routes/categorias');
+const saldosRouter = require('./src/routes/saldos');
 
 async function start() {
   const db = await initDb();
@@ -22,6 +26,11 @@ async function start() {
     req.db = db;
     next();
   });
+
+  app.use('/api/fornecedores', fornecedoresRouter);
+  app.use('/api/contas', contasRouter);
+  app.use('/api/categorias', categoriasRouter);
+  app.use('/api/saldos', saldosRouter);
 
   app.get('/api/health', (_req, res) => {
     res.json({ ok: true, timestamp: new Date() });
