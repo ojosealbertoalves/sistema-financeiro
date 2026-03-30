@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \":*)",
+      "Bash(findstr /v \"DeprecationWarning Pyarrow performant interoperability installed problems feedback pandas-dev\")",
+      "Bash(python migrar_cadastros.py)"
+    ]
+  }
+}
