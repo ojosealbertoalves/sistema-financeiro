@@ -8,6 +8,7 @@ const contasRouter = require('./src/routes/contas');
 const categoriasRouter = require('./src/routes/categorias');
 const saldosRouter = require('./src/routes/saldos');
 const lancamentosRouter = require('./src/routes/lancamentos');
+const caixaRouter = require('./src/routes/caixa');
 
 async function start() {
   const db = await initDb();
@@ -35,6 +36,7 @@ async function start() {
   app.use('/api/categorias', categoriasRouter);
   app.use('/api/saldos', saldosRouter);
   app.use('/api/lancamentos', lancamentosRouter);
+  app.use('/api/caixa', caixaRouter);
 
   app.get('/api/health', (_req, res) => {
     res.json({ ok: true, timestamp: new Date() });
